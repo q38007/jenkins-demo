@@ -3,9 +3,6 @@ node('haimaxy-jnlp') {
         echo "1.Prepare Stage......."
         script {
             build_tag = sh(returnStdout: true, script: 'git rev-parse --short HEAD').trim()
-            if (env.BRANCH_NAME != 'master') {
-                build_tag = "${env.BRANCH_NAME}-${build_tag}"
-            }
         }
     }
     stage('Test') {
@@ -13,7 +10,7 @@ node('haimaxy-jnlp') {
     }
     stage('Build') {
         echo "3.Build Docker Image Stage"
-        sh "docker build -t cnych/jenkins-demo:${build_tag} ."
+        sh "docker build -t start1/jenkins-demo:${build_tag} ."
     }
     stage('Push') {
         echo "4.Push Docker Image Stage"

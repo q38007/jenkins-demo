@@ -10,7 +10,7 @@ node('haimaxy-jnlp') {
         }
     }
     stage('Test') {
-      echo "2.Test Stage"
+      echo "2.Test Stage..."
     }
     stage('Build') {
         echo "3.Build Docker Image Stage"
